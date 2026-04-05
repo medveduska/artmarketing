@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="How to capture high-energy nightclub photography in low-light environments — techniques, gear and settings used by artmarketing in Malta." />
+  <title>Nightclub Photography: Capturing Energy in Low Light — artmarketing Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <style>
+    /* ---- Blog post page specific styles ---- */
+
+    .post-hero {
+      position: relative;
+      padding: calc(var(--nav-height) + 5rem) 0 4rem;
+      background: var(--bg-secondary);
+      overflow: hidden;
+    }
+
+    .post-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+      filter: blur(2px);
+      transform: scale(1.05);
+    }
+
+    .post-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+
+    .post-breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .post-breadcrumb a {
+      color: var(--text-muted);
+      transition: color var(--t-fast);
+    }
+
+    .post-breadcrumb a:hover {
+      color: var(--accent-green);
+    }
+
+    .post-breadcrumb-sep {
+      opacity: 0.4;
+    }
+
+    .post-category {
+      display: inline-block;
+      padding: 0.25rem 0.8rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background: var(--accent-green);
+      color: #070d1a;
+      margin-bottom: 1rem;
+    }
+
+    .post-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      letter-spacing: 1.5px;
+      line-height: 1.05;
+      color: var(--text-primary);
+      margin-bottom: 1.2rem;
+    }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+    }
+
+    .post-author-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 1.5px solid var(--accent-green-border);
+    }
+
+    .post-author-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .post-meta-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--text-muted);
+    }
+
+    /* Article layout */
+    .post-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 4rem;
+      align-items: start;
+      padding: var(--section-pad) 0;
+    }
+
+    .post-cover {
+      aspect-ratio: 16/9;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 3rem;
+    }
+
+    .post-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Article body typography */
+    .post-body {
+      color: var(--text-secondary);
+      line-height: 1.85;
+    }
+
+    .post-body h2 {
+      font-family: var(--font-display);
+      font-size: 1.9rem;
+      letter-spacing: 1px;
+      color: var(--text-primary);
+      margin: 2.5rem 0 1rem;
+    }
+
+    .post-body h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      letter-spacing: 0.5px;
+      color: var(--accent-green);
+      margin: 2rem 0 0.75rem;
+    }
+
+    .post-body p {
+      margin-bottom: 1.4rem;
+    }
+
+    .post-body ul,
+    .post-body ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .post-body ul {
+      list-style: disc;
+    }
+
+    .post-body ol {
+      list-style: decimal;
+    }
+
+    .post-body li {
+      margin-bottom: 0.5rem;
+    }
+
+    .post-body strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .post-body blockquote {
+      border-left: 3px solid var(--accent-green);
+      padding: 1rem 1.5rem;
+      margin: 2rem 0;
+      background: var(--bg-card);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      color: var(--text-secondary);
+      font-size: 1.08rem;
+      font-style: italic;
+    }
+
+    .post-body blockquote cite {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      font-style: normal;
+    }
+
+    .post-inline-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      border-radius: var(--radius-md);
+      margin: 2rem 0;
+    }
+
+    .post-img-caption {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: -1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Share / tags footer */
+    .post-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .post-share {
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .post-share-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* Sidebar */
+    .post-sidebar {
+      position: sticky;
+      top: calc(var(--nav-height) + 2rem);
+    }
+
+    .sidebar-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .sidebar-title {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .sidebar-post {
+      display: flex;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+      text-decoration: none;
+      transition: background var(--t-fast);
+    }
+
+    .sidebar-post:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .sidebar-post-thumb {
+      width: 64px;
+      height: 64px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .sidebar-post-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform var(--t-mid);
+    }
+
+    .sidebar-post:hover .sidebar-post-thumb img {
+      transform: scale(1.1);
+    }
+
+    .sidebar-post-title {
+      font-size: 0.83rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      line-height: 1.35;
+      transition: color var(--t-fast);
+    }
+
+    .sidebar-post:hover .sidebar-post-title {
+      color: var(--accent-green);
+    }
+
+    .sidebar-post-date {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    /* Related posts */
+    .related-section {
+      padding: 5rem 0;
+      background: var(--bg-secondary);
+    }
+
+    @media (max-width: 900px) {
+      .post-layout {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .post-sidebar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .post-hero {
+        padding: calc(var(--nav-height) + 3rem) 0 2.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header id="navbar" role="banner">
+    <a href="index.html" class="nav-logo" aria-label="artmarketing — home">
+      art<span>marketing</span>
+    </a>
+    <nav id="nav-menu" class="nav-menu" aria-label="Main navigation">
+      <a href="index.html#about">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#portfolio">Work</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="index.html#contact" class="nav-cta">Get in Touch</a>
+    </nav>
+    <button id="hamburger" class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+
+  <!-- Post Hero -->
+  <header class="post-hero" aria-labelledby="post-title">
+    <div class="post-hero-bg" style="background-image: url('https://picsum.photos/seed/blog-nightclub/1600/900');" aria-hidden="true"></div>
+
+    <div class="container">
+      <div class="post-hero-content">
+        <!-- Breadcrumb -->
+        <nav class="post-breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span class="post-breadcrumb-sep" aria-hidden="true">/</span>
+          <a href="blog.html">Blog</a>
+          <span class="post-breadcrumb-sep" aria-hidden="true">/</span>
+          <span aria-current="page">Nightclub Photography</span>
+        </nav>
+
+        <span class="post-category">Photography</span>
+
+        <h1 class="post-title" id="post-title">
+          Nightclub Photography:<br />Capturing Energy in Low Light
+        </h1>
+
+        <div class="post-meta">
+          <div class="post-author-avatar">
+            <img
+              src="https://picsum.photos/seed/arthur-avatar/72/72"
+              alt="Arthur — author"
+              width="72"
+              height="72"
+              loading="eager"
+            />
+          </div>
+          <span>By Arthur</span>
+          <span class="post-meta-dot" aria-hidden="true"></span>
+          <time datetime="2026-03-28">March 28, 2026</time>
+          <span class="post-meta-dot" aria-hidden="true"></span>
+          <span>5 min read</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- Post Content -->
+  <div class="container">
+    <div class="post-layout">
+
+      <!-- Article -->
+      <main aria-label="Article content">
+
+        <!-- Cover image -->
+        <div class="post-cover reveal">
+          <img
+            src="https://picsum.photos/seed/blog-nightclub-cover/1200/675"
+            alt="Photographer shooting at a nightclub with coloured stage lighting"
+            width="1200"
+            height="675"
+            loading="eager"
+          />
+        </div>
+
+        <article class="post-body reveal">
+
+          <p>
+            Nightclub photography is one of the most demanding disciplines in the field.
+            You're working with extreme contrast — faces lit by a strobe for a fraction of a second,
+            deep shadow everywhere else, and a crowd that's in constant motion. Get it wrong and
+            you end up with blurry, noisy images that no club is going to post. Get it right and
+            you have a set that drives real social media reach and fills the next event.
+          </p>
+
+          <p>
+            After shooting over 80 events across Malta — from intimate Valletta bars to open-air
+            events with thousands of attendees — here's what we've learned.
+          </p>
+
+          <h2>Gear that Works in the Dark</h2>
+
+          <p>
+            The single biggest variable in nightclub photography is your lens's maximum aperture.
+            In these environments, you're almost always shooting wide open. Our go-to combination is:
+          </p>
+
+          <ul>
+            <li><strong>Primary:</strong> 35mm f/1.4 — gives perspective close to the human eye and lets in maximum light for candid crowd shots.</li>
+            <li><strong>Secondary:</strong> 85mm f/1.8 — for portraits and stage details where you can hang back.</li>
+            <li><strong>Flash setup:</strong> A bounce-capable speedlight on an off-camera adapter — never point it straight at faces.</li>
+          </ul>
+
+          <p>
+            Camera body matters too. A full-frame sensor handles high ISO noise far better than
+            APS-C sensors, which matters when you're pushing ISO 6400 and above.
+          </p>
+
+          <h2>Settings: The Base Recipe</h2>
+
+          <p>
+            There's no single-setting answer because every venue is different. But this is where we
+            start, then adjust every 20 minutes as the lighting rig changes:
+          </p>
+
+          <ul>
+            <li><strong>Shutter speed:</strong> 1/100s minimum to freeze motion. Strobe-heavy venues let you go as low as 1/60s.</li>
+            <li><strong>Aperture:</strong> f/1.4–f/2.0. You may stop down slightly for group shots.</li>
+            <li><strong>ISO:</strong> Start at ISO 3200; go higher only if needed. Modern noise reduction in post handles ISO 6400 well.</li>
+            <li><strong>White balance:</strong> Auto, then correct per sequence in Lightroom. Don't fight the coloured lights.</li>
+          </ul>
+
+          <blockquote>
+            "The coloured lights are not your enemy. They're the atmosphere. Work with the
+            venue lighting rather than trying to overpower it with your own flash."
+            <cite>— Arthur, artmarketing</cite>
+          </blockquote>
+
+          <h2>Reading the Room</h2>
+
+          <p>
+            Great nightclub photography is about anticipation. You need to be moving constantly,
+            reading where the energy is about to peak — the last note before the drop, the moment
+            the DJ raises their hand, the spontaneous group hug in the crowd. Position yourself
+            for these moments before they happen.
+          </p>
+
+          <img
+            class="post-inline-img"
+            src="https://picsum.photos/seed/club-crowd/1200/675"
+            alt="Crowd shot from a Malta nightclub showing dynamic lighting and energy"
+            width="1200"
+            height="675"
+            loading="lazy"
+          />
+          <p class="post-img-caption">Crowd energy at Azure Club, St Julian's — captured at the peak of the drop.</p>
+
+          <h3>Working with Strobe Lighting</h3>
+
+          <p>
+            Strobe lights are your best friend and your biggest challenge simultaneously.
+            When the strobe fires, you have a fraction of a second of bright, directional light.
+            Time your shot to fire with the strobe and you get crisp, high-contrast images.
+            Miss it and you're left with motion blur.
+          </p>
+
+          <p>
+            The practical way to handle this: burst mode. Shoot 2–3 frames per moment at tight
+            events. You'll increase your hit rate significantly, and modern storage cards make
+            this no longer a capacity concern.
+          </p>
+
+          <h2>Post-Processing: Speed Matters</h2>
+
+          <p>
+            Malta's nightlife brands need images fast — often same night for Instagram Stories.
+            For this reason, we shoot in RAW+JPEG simultaneously. JPEGs are the quick-turn social
+            deliverables; RAWs get the full treatment for final delivery within 48 hours.
+          </p>
+
+          <p>
+            Our Lightroom preset workflow is baked for nightclub conditions: a base preset drops
+            highlights, lifts shadows selectively, and adds a slight cool-to-warm split tone that
+            works with most club lighting palettes.
+          </p>
+
+          <h2>Working with the Venue</h2>
+
+          <p>
+            The best nightclub images come from venues that trust you with access. Before every
+            shoot we talk to the events team, the lighting operator and — where possible — the
+            DJ or act. Knowing the set plan means knowing <em>when</em> the tent-pole moments are.
+          </p>
+
+          <p>
+            If you're a nightclub or events brand in Malta looking for a photographer who understands
+            the space and can deliver fast, scroll-stopping images — let's talk.
+          </p>
+
+          <!-- Tags -->
+          <div class="post-tags" aria-label="Article tags">
+            <span class="tag">Photography</span>
+            <span class="tag">Events</span>
+            <span class="tag cyan">Malta</span>
+            <span class="tag">Nightlife</span>
+            <span class="tag cyan">Low Light</span>
+          </div>
+
+          <!-- Share -->
+          <div class="post-share">
+            <span class="post-share-label">Share</span>
+            <a href="#" class="social-link" aria-label="Share on Instagram" title="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Share on Facebook" title="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Share on LinkedIn" title="LinkedIn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Author bio -->
+        <div style="
+          display: flex;
+          gap: 1.25rem;
+          align-items: flex-start;
+          margin-top: 3rem;
+          padding: 1.8rem;
+          background: var(--bg-card);
+          border: 1px solid var(--border-card);
+          border-radius: var(--radius-lg);
+          border-left: 3px solid var(--accent-green);
+        " class="reveal">
+          <div style="width:60px; height:60px; border-radius:50%; overflow:hidden; flex-shrink:0; border: 1.5px solid var(--accent-green-border);">
+            <img
+              src="https://picsum.photos/seed/arthur-avatar/120/120"
+              alt="Arthur"
+              width="120"
+              height="120"
+              loading="lazy"
+            />
+          </div>
+          <div>
+            <div style="font-family: var(--font-display); font-size: 1.2rem; color: var(--text-primary); letter-spacing: 0.5px; margin-bottom: 0.4rem;">Arthur</div>
+            <div style="font-size: 0.72rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-green); margin-bottom: 0.6rem;">Creative Director — artmarketing</div>
+            <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; margin: 0;">
+              Malta-based creative director specialising in photography, cinematic video and
+              web design for the hospitality and nightlife industry across Malta and Europe.
+            </p>
+          </div>
+        </div>
+
+      </main>
+
+      <!-- Sidebar -->
+      <aside class="post-sidebar" aria-label="Related articles and contact">
+
+        <!-- CTA card -->
+        <div class="sidebar-card" style="border-color: var(--accent-green-border); background: var(--accent-green-dim);">
+          <div class="sidebar-title">Work with us</div>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.2rem; line-height: 1.6;">
+            Looking for a photographer for your next event, venue or brand campaign?
+          </p>
+          <a href="index.html#contact" class="btn btn-primary" style="width:100%; justify-content:center;">
+            Get in Touch →
+          </a>
+        </div>
+
+        <!-- Recent posts -->
+        <div class="sidebar-card">
+          <div class="sidebar-title">More Articles</div>
+
+          <a href="blog-post.html" class="sidebar-post">
+            <div class="sidebar-post-thumb">
+              <img
+                src="https://picsum.photos/seed/blog-restaurant/128/128"
+                alt="Restaurant interior"
+                width="128"
+                height="128"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <div class="sidebar-post-title">Why Malta's Restaurants Are Investing in Video Content</div>
+              <div class="sidebar-post-date">March 14, 2026</div>
+            </div>
+          </a>
+
+          <a href="blog-post.html" class="sidebar-post">
+            <div class="sidebar-post-thumb">
+              <img
+                src="https://picsum.photos/seed/blog-gumbal/128/128"
+                alt="Outdoor event"
+                width="128"
+                height="128"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <div class="sidebar-post-title">Behind the Lens: Covering Gumbal 2025</div>
+              <div class="sidebar-post-date">February 22, 2026</div>
+            </div>
+          </a>
+
+          <a href="blog-post.html" class="sidebar-post">
+            <div class="sidebar-post-thumb">
+              <img
+                src="https://picsum.photos/seed/blog-webdesign/128/128"
+                alt="Web design"
+                width="128"
+                height="128"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <div class="sidebar-post-title">Web Design Trends Winning Hospitality Brands</div>
+              <div class="sidebar-post-date">February 5, 2026</div>
+            </div>
+          </a>
+        </div>
+
+        <!-- Services card -->
+        <div class="sidebar-card">
+          <div class="sidebar-title">Services</div>
+          <ul class="footer-links" style="display:flex; flex-direction:column; gap:0.7rem;">
+            <li><a href="index.html#services" style="font-size:0.88rem; color: var(--text-secondary);">📷 Photography</a></li>
+            <li><a href="index.html#services" style="font-size:0.88rem; color: var(--text-secondary);">🎬 Video Production</a></li>
+            <li><a href="index.html#services" style="font-size:0.88rem; color: var(--text-secondary);">🌐 Web Creation</a></li>
+          </ul>
+        </div>
+
+      </aside>
+
+    </div>
+  </div>
+
+
+  <!-- Related posts -->
+  <section class="related-section" aria-labelledby="related-heading">
+    <div class="container">
+      <h2 class="section-title reveal" id="related-heading" style="margin-bottom: 2.5rem;">
+        Keep <span class="highlight">Reading</span>
+      </h2>
+      <div class="blog-grid reveal-stagger">
+        <article class="blog-card reveal">
+          <div class="blog-thumb-wrapper">
+            <a href="blog-post.html" aria-label="Read: Why Malta's Restaurants Are Investing in Video Content">
+              <img src="https://picsum.photos/seed/blog-restaurant/800/450" alt="Restaurant interior" width="800" height="450" loading="lazy" />
+            </a>
+            <span class="blog-category">Video</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta"><span>March 14, 2026</span><span class="blog-meta-dot" aria-hidden="true"></span><span>4 min read</span></div>
+            <h3 class="blog-title"><a href="blog-post.html">Why Malta's Restaurants Are Investing in Video Content</a></h3>
+            <p class="blog-excerpt">Short-form video is no longer optional for restaurants competing on social media.</p>
+            <a href="blog-post.html" class="blog-read-more">Read Article →</a>
+          </div>
+        </article>
+        <article class="blog-card reveal delay-1">
+          <div class="blog-thumb-wrapper">
+            <a href="blog-post.html" aria-label="Read: Behind the Lens — Gumbal Summer Edition 2025">
+              <img src="https://picsum.photos/seed/blog-gumbal/800/450" alt="Outdoor event" width="800" height="450" loading="lazy" />
+            </a>
+            <span class="blog-category">Events</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta"><span>Feb 22, 2026</span><span class="blog-meta-dot" aria-hidden="true"></span><span>6 min read</span></div>
+            <h3 class="blog-title"><a href="blog-post.html">Behind the Lens: Covering Gumbal Summer Edition 2025</a></h3>
+            <p class="blog-excerpt">A behind-the-scenes look at how we executed full photo and video coverage.</p>
+            <a href="blog-post.html" class="blog-read-more">Read Article →</a>
+          </div>
+        </article>
+        <article class="blog-card reveal delay-2">
+          <div class="blog-thumb-wrapper">
+            <a href="blog-post.html" aria-label="Read: Event Photography Checklist">
+              <img src="https://picsum.photos/seed/blog-checklist/800/450" alt="Camera gear" width="800" height="450" loading="lazy" />
+            </a>
+            <span class="blog-category">Photography</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta"><span>Jan 18, 2026</span><span class="blog-meta-dot" aria-hidden="true"></span><span>4 min read</span></div>
+            <h3 class="blog-title"><a href="blog-post.html">Event Photography Checklist: Before the Night</a></h3>
+            <p class="blog-excerpt">Everything we pack and plan before shooting a major event in Malta.</p>
+            <a href="blog-post.html" class="blog-read-more">Read Article →</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" aria-label="artmarketing home">art<span>marketing</span></a>
+          <p>Strategic photography, video production and web design for Malta's hospitality, nightlife and events industry.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="index.html#services">Photography</a></li>
+            <li><a href="index.html#services">Video Production</a></li>
+            <li><a href="index.html#services">Web Creation</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="index.html#about">About Arthur</a></li>
+            <li><a href="index.html#portfolio">Portfolio</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Industries</div>
+          <ul class="footer-links">
+            <li><a href="index.html#contact">Restaurants &amp; Bars</a></li>
+            <li><a href="index.html#contact">Nightclubs</a></li>
+            <li><a href="index.html#contact">Event Organisers</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2026 artmarketing. All rights reserved. Malta.</p>
+        <nav class="footer-bottom-links" aria-label="Legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script src="js/scroll-animations.js"></script>
+</body>
+</html>

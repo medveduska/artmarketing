@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Behind the lens with artmarketing — insights, tips and stories from photography, video production and web design for Malta's hospitality and nightlife industry." />
+  <title>Blog — artmarketing</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+
+  <style>
+    /* ---- Blog listing page specific styles ---- */
+    .blog-hero {
+      padding: calc(var(--nav-height) + 4rem) 0 4rem;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .blog-hero .section-title {
+      font-size: var(--fs-xl);
+    }
+
+    .blog-listing-section {
+      padding: var(--section-pad) 0;
+      background: var(--bg-primary);
+    }
+
+    .blog-listing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--gap-cards);
+    }
+
+    /* Featured post (first / full-width) */
+    .blog-card-featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: transform var(--t-mid), box-shadow var(--t-mid);
+    }
+
+    .blog-card-featured:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .blog-card-featured .blog-thumb-wrapper {
+      aspect-ratio: auto;
+      height: 100%;
+      min-height: 340px;
+    }
+
+    .blog-card-featured .blog-body {
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .blog-card-featured .blog-title {
+      font-size: 1.8rem;
+    }
+
+    .blog-card-featured .blog-excerpt {
+      -webkit-line-clamp: 4;
+      font-size: 0.93rem;
+    }
+
+    /* Category filter */
+    .blog-categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .cat-btn {
+      padding: 0.45rem 1.1rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      color: var(--text-muted);
+      border: 1px solid var(--border-card);
+      background: transparent;
+      transition: all var(--t-fast);
+      cursor: pointer;
+    }
+
+    .cat-btn:hover {
+      color: var(--text-primary);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    .cat-btn.active {
+      background: var(--accent-green);
+      color: #070d1a;
+      border-color: var(--accent-green);
+      box-shadow: 0 4px 16px rgba(0, 255, 136, 0.3);
+    }
+
+    @media (max-width: 768px) {
+      .blog-listing-grid { grid-template-columns: 1fr; }
+
+      .blog-card-featured {
+        grid-template-columns: 1fr;
+      }
+
+      .blog-card-featured .blog-thumb-wrapper {
+        height: 240px;
+        min-height: unset;
+      }
+
+      .blog-card-featured .blog-body {
+        padding: 1.5rem;
+      }
+
+      .blog-card-featured .blog-title {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header id="navbar" role="banner">
+    <a href="index.html" class="nav-logo" aria-label="artmarketing — home">
+      art<span>marketing</span>
+    </a>
+    <nav id="nav-menu" class="nav-menu" aria-label="Main navigation">
+      <a href="index.html#about">About</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#portfolio">Work</a>
+      <a href="blog.html" class="active">Blog</a>
+      <a href="index.html#contact" class="nav-cta">Get in Touch</a>
+    </nav>
+    <button id="hamburger" class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+
+  <!-- Blog Hero -->
+  <section class="blog-hero" aria-labelledby="blog-hero-heading">
+    <div class="container">
+      <span class="section-eyebrow reveal">Behind the Lens</span>
+      <h1 class="section-title reveal delay-1" id="blog-hero-heading">
+        Stories &amp; <span class="highlight">Insights</span>
+      </h1>
+      <p class="section-subtitle reveal delay-2">
+        Photography tips, video production stories and web design insights
+        — all from the perspective of Malta's creative industry.
+      </p>
+      <div class="accent-line reveal delay-3" aria-hidden="true"></div>
+    </div>
+  </section>
+
+
+  <!-- Blog Listing -->
+  <section class="blog-listing-section" aria-labelledby="blog-heading">
+    <div class="container">
+
+      <!-- Category filter -->
+      <div class="blog-categories" role="group" aria-label="Filter by category">
+        <button class="cat-btn active">All Posts</button>
+        <button class="cat-btn">Photography</button>
+        <button class="cat-btn">Video</button>
+        <button class="cat-btn">Web Design</button>
+        <button class="cat-btn">Events</button>
+      </div>
+
+      <div class="blog-listing-grid">
+
+        <!-- Featured -->
+        <article class="blog-card-featured reveal">
+          <div class="blog-thumb-wrapper">
+            <a href="blog-post.html" aria-label="Read: Nightclub Photography — How to Capture Energy in Low Light">
+              <img
+                src="https://picsum.photos/seed/blog-nightclub/1000/560"
+                alt="Vibrant nightclub photography showing colourful stage lights and dancing crowd"
+                width="1000"
+                height="560"
+                loading="eager"
+              />
+            </a>
+            <span class="blog-category">Photography</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span>March 28, 2026</span>
+              <span class="blog-meta-dot" aria-hidden="true"></span>
+              <span>5 min read</span>
+            </div>
+            <h2 class="blog-title">
+              <a href="blog-post.html">Nightclub Photography: Capturing Energy in Low Light</a>
+            </h2>
+            <p class="blog-excerpt">
+              Low light, fast movement and a crowd full of energy — here's how we approach
+              shooting Malta's biggest club nights to get images that actually sell tickets and
+              make people feel the FOMO before they even arrive.
+            </p>
+            <a href="blog-post.html" class="blog-read-more">
+              Read Article <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article class="blog-card reveal">
+          <div class="blog-thumb-wrapper">
+            <a href="blog-post.html" aria-label="Read: Why Malta's Restaurants Are Investing in Video Content">
+              <img
+                src="https://picsum.photos/seed/blog-restaurant/800/450"
+                alt="Elegantly lit restaurant interior with food presentation"
+                width="800"
+                height="450"
+                loading="lazy"
+              />
+            </a>
+            <span class="blog-category">Video</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span>March 14, 2026</span>
+              <span class="blog-meta-dot" aria-hidden="true"></span>
+              <span>4 min read</span>
+            </div>
+            <h3 class="blog-title">
+              <a href="blog-post.html">Why Malta's Restaurants Are Investing in Video Content</a>
+            </h3>
+            <p class="blog-excerpt">
+              Short-form video is no longer optional for restaurants competing on social media.
+              We break down the ROI and what's working right now.
+            </p>
+            <a href="blog-post.html" class="blog-read-more">Read Article <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <!-- Post 3 -->
+        <article class="blog-card reveal delay-1">
+          <div class="blog-thumb-wrapper">
+            <a href="blog-post.html" aria-label="Read: Behind the Lens — Covering Gumbal Summer Edition 2025">
+              <img
+                src="https://picsum.photos/seed/blog-gumbal/800/450"
+                alt="Outdoor summer event with stage lights and crowd"
+                width="800"
+                height="450"
+                loading="lazy"
+              />
+            </a>
+            <span class="blog-category">Events</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span>February 22, 2026</span>
+              <span class="blog-meta-dot" aria-hidden="true"></span>
+              <span>6 min read</span>
+            </div>
+            <h3 class="blog-title">
+              <a href="blog-post.html">Behind the Lens: Covering Gumbal Summer Edition 2025</a>
+            </h3>
+            <p class="blog-excerpt">
+              A behind-the-scenes look at how we planned and executed full photo and video
+              coverage for one of Malta's premier outdoor events.
+            </p>
+            <a href="blog-post.html" class="blog-read-more">Read Article <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <!-- Post 4 -->
+        <article class="blog-card reveal delay-2">
+          <div class="blog-thumb-wrapper">
+            <a href="blog-post.html" aria-label="Read: Web Design Trends Winning Over Maltese Hospitality Brands">
+              <img
+                src="https://picsum.photos/seed/blog-webdesign/800/450"
+                alt="Laptop showing a dark, modern hospitality website"
+                width="800"
+                height="450"
+                loading="lazy"
+              />
+            </a>
+            <span class="blog-category">Web Design</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span>February 5, 2026</span>
+              <span class="blog-meta-dot" aria-hidden="true"></span>
+              <span>5 min read</span>
+            </div>
+            <h3 class="blog-title">
+              <a href="blog-post.html">Web Design Trends Winning Maltese Hospitality Brands</a>
+            </h3>
+            <p class="blog-excerpt">
+              From dark-mode aesthetics to scroll storytelling — the design choices that
+              are converting visitors into diners, members and guests in 2026.
+            </p>
+            <a href="blog-post.html" class="blog-read-more">Read Article <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <!-- Post 5 -->
+        <article class="blog-card reveal">
+          <div class="blog-thumb-wrapper">
+            <a href="blog-post.html" aria-label="Read: Event Photography Checklist">
+              <img
+                src="https://picsum.photos/seed/blog-checklist/800/450"
+                alt="Camera gear laid out on a table before an event shoot"
+                width="800"
+                height="450"
+                loading="lazy"
+              />
+            </a>
+            <span class="blog-category">Photography</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span>January 18, 2026</span>
+              <span class="blog-meta-dot" aria-hidden="true"></span>
+              <span>4 min read</span>
+            </div>
+            <h3 class="blog-title">
+              <a href="blog-post.html">Event Photography Checklist: What to Prepare Before the Night</a>
+            </h3>
+            <p class="blog-excerpt">
+              Everything we pack, test and plan before shooting a major event — so nothing
+              gets missed when the lights go down and the music starts.
+            </p>
+            <a href="blog-post.html" class="blog-read-more">Read Article <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <!-- Post 6 -->
+        <article class="blog-card reveal delay-1">
+          <div class="blog-thumb-wrapper">
+            <a href="blog-post.html" aria-label="Read: From Instagram to Website — Building a Consistent Visual Brand">
+              <img
+                src="https://picsum.photos/seed/blog-brand/800/450"
+                alt="Phone showing Instagram grid alongside a restaurant website on desktop"
+                width="800"
+                height="450"
+                loading="lazy"
+              />
+            </a>
+            <span class="blog-category">Web Design</span>
+          </div>
+          <div class="blog-body">
+            <div class="blog-meta">
+              <span>January 4, 2026</span>
+              <span class="blog-meta-dot" aria-hidden="true"></span>
+              <span>5 min read</span>
+            </div>
+            <h3 class="blog-title">
+              <a href="blog-post.html">From Instagram to Website: Building a Consistent Visual Brand</a>
+            </h3>
+            <p class="blog-excerpt">
+              Your social media and website should feel like the same brand. Here's how we
+              align visual identity across every touchpoint for our hospitality clients.
+            </p>
+            <a href="blog-post.html" class="blog-read-more">Read Article <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+      </div><!-- /blog-listing-grid -->
+    </div>
+  </section>
+
+
+  <!-- CTA strip -->
+  <section style="background: var(--bg-secondary); padding: 5rem 0;" aria-label="Work with us">
+    <div class="container" style="text-align:center;">
+      <span class="section-eyebrow reveal">Ready to start?</span>
+      <h2 class="section-title reveal delay-1" style="margin: 0.5rem 0 1rem;">
+        Let's make your brand <span class="highlight">unforgettable</span>
+      </h2>
+      <p class="section-subtitle reveal delay-2" style="margin: 0 auto 2rem;">
+        Photography, video and web — all under one roof. Malta-based, EU-ready.
+      </p>
+      <a href="index.html#contact" class="btn btn-primary reveal delay-3">
+        Start a Project <span class="btn-icon" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" aria-label="artmarketing home">art<span>marketing</span></a>
+          <p>Strategic photography, video production and web design for Malta's hospitality, nightlife and events industry.</p>
+          <div class="footer-socials">
+            <a href="#" class="social-link" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="#" class="social-link" aria-label="Facebook">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="index.html#services">Photography</a></li>
+            <li><a href="index.html#services">Video Production</a></li>
+            <li><a href="index.html#services">Web Creation</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="index.html#about">About Arthur</a></li>
+            <li><a href="index.html#portfolio">Portfolio</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Industries</div>
+          <ul class="footer-links">
+            <li><a href="index.html#contact">Restaurants &amp; Bars</a></li>
+            <li><a href="index.html#contact">Nightclubs</a></li>
+            <li><a href="index.html#contact">Event Organisers</a></li>
+            <li><a href="index.html#contact">Hotels &amp; Hospitality</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copyright">&copy; 2026 artmarketing. All rights reserved. Malta.</p>
+        <nav class="footer-bottom-links" aria-label="Legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/nav.js"></script>
+  <script src="js/scroll-animations.js"></script>
+</body>
+</html>

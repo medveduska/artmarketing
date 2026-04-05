@@ -1,0 +1,255 @@
+/* =========================================
+   responsive.css — Mobile-first breakpoints
+   artmarketing portfolio website
+   ========================================= */
+
+/* ============================================
+   TABLET — max-width: 1024px
+============================================ */
+@media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .contact-grid {
+    gap: 3rem;
+  }
+}
+
+/* ============================================
+   TABLET PORTRAIT — max-width: 768px
+============================================ */
+@media (max-width: 768px) {
+  /* --- Nav --- */
+  .hamburger {
+    display: flex;
+  }
+
+  #nav-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(320px, 85vw);
+    background: rgba(10, 18, 32, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-left: 1px solid var(--border-card);
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem;
+    gap: 2rem;
+    transform: translateX(100%);
+    transition: transform var(--t-mid);
+    z-index: var(--z-overlay);
+  }
+
+  #nav-menu.open {
+    transform: translateX(0);
+  }
+
+  .nav-menu a {
+    font-size: 1.1rem;
+  }
+
+  .nav-cta {
+    padding: 0.75rem 1.6rem;
+  }
+
+  /* --- Hero --- */
+  .hero-headline {
+    font-size: clamp(3rem, 13vw, 5rem);
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .hero-actions .btn {
+    width: auto;
+  }
+
+  /* --- About --- */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .about-stats {
+    position: static;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  /* --- Services --- */
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Gallery --- */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 220px;
+  }
+
+  .gallery-item.span-2 {
+    grid-column: span 1;
+  }
+
+  /* --- Blog --- */
+  .blog-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* --- Contact --- */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Footer --- */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  /* --- Lightbox nav buttons --- */
+  .lb-prev { left: 0.5rem; }
+  .lb-next { right: 0.5rem; }
+}
+
+/* ============================================
+   MOBILE — max-width: 480px
+============================================ */
+@media (max-width: 480px) {
+  /* --- Gallery --- */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 260px;
+  }
+
+  .gallery-item.span-row-2 {
+    grid-row: span 1;
+  }
+
+  /* --- Portfolio filters — allow horizontal scroll --- */
+  .portfolio-filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 0.5rem;
+  }
+
+  .portfolio-filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-btn {
+    flex-shrink: 0;
+  }
+
+  /* --- Footer --- */
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* --- Video modal --- */
+  .vm-inner {
+    width: 95vw;
+    border-radius: var(--radius-md);
+  }
+
+  .vm-info {
+    padding: 0.9rem 1.1rem 1.2rem;
+  }
+
+  /* --- Hero --- */
+  .scroll-indicator {
+    display: none;
+  }
+
+  /* --- About stats --- */
+  .about-stats {
+    gap: 0.5rem;
+  }
+
+  .stat-card {
+    padding: 0.7rem 0.9rem;
+    min-width: 90px;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .hero-bg {
+    transform: none !important;
+  }
+
+  [data-parallax] {
+    transform: none !important;
+  }
+}
+
+/* ============================================
+   PRINT
+============================================ */
+@media print {
+  #navbar,
+  .scroll-indicator,
+  #lightbox,
+  #video-modal,
+  .hero-actions,
+  .contact-form {
+    display: none;
+  }
+
+  body {
+    background: white;
+    color: black;
+  }
+}
