@@ -28,6 +28,60 @@ section {
   padding: var(--section-pad) 0;
 }
 
+/* ===========================================
+   INTRO LOGO OVERLAY
+=========================================== */
+#logo-intro {
+  /* Transparent marker — visual work is all on .logo-intro-lockup */
+  pointer-events: none;
+}
+
+.logo-intro-lockup {
+  /* Independently fixed; JS sets left/top each frame in pixel coords */
+  position: fixed;
+  z-index: 299;   /* above hero (z-index:auto) and all content; below navbar (300) */
+  display: none;  /* hidden by default; .is-active on parent shows it */
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--text-primary);
+  line-height: 1;
+  text-align: center;
+  transform-origin: 50% 50%;
+  will-change: transform, opacity;
+}
+
+#logo-intro.is-active .logo-intro-lockup {
+  display: inline-flex;
+}
+
+#logo-intro .brand-logo {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  filter:
+    drop-shadow(0 18px 42px rgba(0, 0, 0, 0.55))
+    drop-shadow(0 0 30px rgba(188, 232, 255, 0.25));
+}
+
+#logo-intro .brand-sub {
+  font-size: 0.66rem;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: rgba(230, 241, 255, 0.92);
+  max-width: 96px;   /* same as logo width → forces 2-line wrap */
+}
+
+/* Hide the real nav logo while the intro overlay is animating */
+body.intro-active #navbar .nav-logo {
+  opacity: 0 !important;
+  pointer-events: none;
+}
+
+.nav-logo {
+  transition: opacity var(--t-mid), transform var(--t-mid);
+}
+
 /* ---- Section headers ---- */
 .section-eyebrow {
   display: inline-block;
@@ -342,6 +396,17 @@ section {
 }
 
 /* ===========================================
+   INTRO STAGE
+=========================================== */
+#intro-stage {
+  position: relative;
+  /* Exact height = logo-intro scroll range so hero lands at viewport top when animation completes */
+  height: calc(var(--logo-intro-range) * 1px);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* ===========================================
    HERO
 =========================================== */
 #hero {
@@ -355,7 +420,9 @@ section {
 }
 
 #hero::before,
-#hero::after {
+#hero::after,
+#intro-stage::before,
+#intro-stage::after {
   content: '';
   position: absolute;
   inset: -12%;
@@ -363,7 +430,8 @@ section {
   z-index: 0;
 }
 
-#hero::before {
+#hero::before,
+#intro-stage::before {
   width: 2px;
   height: 2px;
   background: rgba(255, 255, 255, 1);
@@ -391,7 +459,8 @@ section {
   animation: starTwinkle 6.5s ease-in-out infinite;
 }
 
-#hero::after {
+#hero::after,
+#intro-stage::after {
   width: 1.5px;
   height: 1.5px;
   background: rgba(255, 255, 255, 0.92);
@@ -468,6 +537,14 @@ section {
   position: relative;
   z-index: 1;
   max-width: 900px;
+  /* Revealed by JS removing body.intro-active once the logo is fully docked */
+  transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+}
+
+body.intro-active .hero-content {
+  opacity: 0;
+  transform: translateY(22px);
+  pointer-events: none;
 }
 
 .hero-eyebrow {
@@ -541,6 +618,13 @@ section {
   text-transform: uppercase;
   animation: scrollBounce 2.2s ease-in-out infinite;
   z-index: 1;
+  transition: opacity 0.5s var(--ease-out-expo);
+}
+
+/* Scroll hint is meaningful only during the intro; hide it once the hero is revealed */
+body:not(.intro-active) .scroll-indicator {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .scroll-indicator-arrow {

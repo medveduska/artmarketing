@@ -23,7 +23,17 @@
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/responsive.css" />
 </head>
-<body>
+<body class="intro-active">
+
+  <!-- Prime hero progress to 0 before first CSS paint so hero text starts hidden -->
+  <script>document.documentElement.style.setProperty('--hero-intro-progress','0');</script>
+
+  <div id="logo-intro" class="is-active" aria-hidden="true">
+    <div class="logo-intro-lockup">
+      <img src="images/logo.png" class="brand-logo" alt="" width="64" height="64" />
+      <span class="brand-sub">Media and Marketing Agency</span>
+    </div>
+  </div>
 
   <!-- ===================================================
        NAVIGATION
@@ -55,6 +65,17 @@
     </button>
   </header>
 
+
+  <!-- ===================================================
+       INTRO STAGE — owns the scroll range for the logo morph
+  =================================================== -->
+  <section id="intro-stage" aria-hidden="true">
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="scroll-indicator" aria-hidden="true">
+      <span>Scroll</span>
+      <div class="scroll-indicator-arrow"></div>
+    </div>
+  </section>
 
   <!-- ===================================================
        HERO
@@ -99,10 +120,6 @@
       </div>
     </div>
 
-    <div class="scroll-indicator" aria-hidden="true">
-      <span>Scroll</span>
-      <div class="scroll-indicator-arrow"></div>
-    </div>
   </section>
 
 
@@ -1341,6 +1358,7 @@
        SCRIPTS
   =================================================== -->
   <script src="js/nav.js"></script>
+    <script src="js/logo-intro.js"></script>
   <script src="js/parallax.js"></script>
   <script src="js/scroll-animations.js"></script>
   <script src="js/gallery.js"></script>

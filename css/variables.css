@@ -75,6 +75,11 @@
   --t-mid:   0.38s ease;
   --t-slow:  0.70s var(--ease-out-expo);
 
+  /* ---- Intro logo morph ---- */
+  --logo-intro-scale-start: 5.0;
+  --logo-intro-range: 560;   /* px of scroll over which the intro plays */
+  --logo-intro-fade-start: 0.88; /* progress fraction at which logo begins to fade */
+
   /* ---- Z-indices ---- */
   --z-below:   -1;
   --z-base:     1;
