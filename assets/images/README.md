@@ -1,6 +1,6 @@
 # assets/images
 
-This folder holds all real production images for artmarketing.
+This folder holds all real production images for PMLAB.
 
 ## Directory structure
 

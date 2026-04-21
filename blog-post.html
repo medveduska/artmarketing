@@ -3,12 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="How to capture high-energy nightclub photography in low-light environments — techniques, gear and settings used by artmarketing in Malta." />
-  <title>Nightclub Photography: Capturing Energy in Low Light — artmarketing Blog</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <meta name="description" content="How to capture high-energy nightclub photography in low-light environments — techniques, gear and settings used by PMLAB." />
+  <title>Nightclub Photography: Capturing Energy in Low Light — PMLAB Blog</title>
 
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/variables.css" />
@@ -72,18 +68,18 @@
       font-weight: 600;
       letter-spacing: 1.5px;
       text-transform: uppercase;
-      background: var(--accent-green);
-      color: #070d1a;
+      background: linear-gradient(90deg, var(--accent-green), var(--accent-cyan));
+      color: var(--text-primary);
       margin-bottom: 1rem;
     }
 
     .post-title {
       font-family: var(--font-display);
       font-size: clamp(2.2rem, 5vw, 3.8rem);
-      letter-spacing: 1.5px;
-      line-height: 1.05;
+      letter-spacing: 1.2px;
+      line-height: 1.02;
       color: var(--text-primary);
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.1rem;
     }
 
     .post-meta {
@@ -141,27 +137,29 @@
     /* Article body typography */
     .post-body {
       color: var(--text-secondary);
-      line-height: 1.85;
+      font-size: 1.01rem;
+      line-height: 1.82;
+      max-width: 72ch;
     }
 
     .post-body h2 {
       font-family: var(--font-display);
-      font-size: 1.9rem;
-      letter-spacing: 1px;
+      font-size: 1.82rem;
+      letter-spacing: 0.9px;
       color: var(--text-primary);
-      margin: 2.5rem 0 1rem;
+      margin: 2.3rem 0 0.95rem;
     }
 
     .post-body h3 {
       font-family: var(--font-display);
-      font-size: 1.35rem;
-      letter-spacing: 0.5px;
+      font-size: 1.28rem;
+      letter-spacing: 0.45px;
       color: var(--accent-green);
-      margin: 2rem 0 0.75rem;
+      margin: 1.8rem 0 0.7rem;
     }
 
     .post-body p {
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.25rem;
     }
 
     .post-body ul,
@@ -191,10 +189,11 @@
       border-left: 3px solid var(--accent-green);
       padding: 1rem 1.5rem;
       margin: 2rem 0;
-      background: var(--bg-card);
+      background: rgba(255, 255, 255, 0.08);
       border-radius: 0 var(--radius-md) var(--radius-md) 0;
       color: var(--text-secondary);
-      font-size: 1.08rem;
+      font-size: 1.05rem;
+      line-height: 1.75;
       font-style: italic;
     }
 
@@ -254,8 +253,10 @@
     }
 
     .sidebar-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
+      background: var(--glass-white);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
       border-radius: var(--radius-lg);
       padding: 1.5rem;
       margin-bottom: 1.5rem;
@@ -304,10 +305,10 @@
     }
 
     .sidebar-post-title {
-      font-size: 0.83rem;
+      font-size: 0.84rem;
       font-weight: 500;
       color: var(--text-secondary);
-      line-height: 1.35;
+      line-height: 1.4;
       transition: color var(--t-fast);
     }
 
@@ -349,8 +350,9 @@
 
   <!-- Navigation -->
   <header id="navbar" role="banner">
-    <a href="index.html" class="nav-logo" aria-label="artmarketing — home">
-      art<span>marketing</span>
+    <a href="index.html" class="nav-logo" aria-label="PMLAB — home">
+      <img src="images/logo.png" class="brand-logo" alt="PMLAB logo" width="64" height="64" />
+      <span class="brand-sub">Media and Marketing Agency</span>
     </a>
     <nav id="nav-menu" class="nav-menu" aria-label="Main navigation">
       <a href="index.html#about">About</a>
@@ -475,7 +477,7 @@
           <blockquote>
             "The coloured lights are not your enemy. They're the atmosphere. Work with the
             venue lighting rather than trying to overpower it with your own flash."
-            <cite>— Arthur, artmarketing</cite>
+            <cite>— Arthur, PMLAB</cite>
           </blockquote>
 
           <h2>Reading the Room</h2>
@@ -586,7 +588,7 @@
           </div>
           <div>
             <div style="font-family: var(--font-display); font-size: 1.2rem; color: var(--text-primary); letter-spacing: 0.5px; margin-bottom: 0.4rem;">Arthur</div>
-            <div style="font-size: 0.72rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-green); margin-bottom: 0.6rem;">Creative Director — artmarketing</div>
+            <div style="font-size: 0.72rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--accent-green); margin-bottom: 0.6rem;">Creative Director — PMLAB</div>
             <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; margin: 0;">
               Malta-based creative director specialising in photography, cinematic video and
               web design for the hospitality and nightlife industry across Malta and Europe.
@@ -600,7 +602,7 @@
       <aside class="post-sidebar" aria-label="Related articles and contact">
 
         <!-- CTA card -->
-        <div class="sidebar-card" style="border-color: var(--accent-green-border); background: var(--accent-green-dim);">
+        <div class="sidebar-card" style="border-color: var(--accent-green-border); background: var(--glass-white);">
           <div class="sidebar-title">Work with us</div>
           <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.2rem; line-height: 1.6;">
             Looking for a photographer for your next event, venue or brand campaign?
@@ -738,8 +740,11 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="nav-logo" aria-label="artmarketing home">art<span>marketing</span></a>
-          <p>Strategic photography, video production and web design for Malta's hospitality, nightlife and events industry.</p>
+          <a href="index.html" class="nav-logo" aria-label="PMLAB home">
+            <img src="images/logo.png" class="brand-logo" alt="PMLAB logo" width="72" height="72" />
+            <span class="brand-sub">Media and Marketing Agency</span>
+          </a>
+          <p>Arthur's Pimenovs Marketing and Media agency delivering strategic photography, video production and web design for hospitality, nightlife and events.</p>
           <div class="footer-socials">
             <a href="#" class="social-link" aria-label="Instagram">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -773,7 +778,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copyright">&copy; 2026 artmarketing. All rights reserved. Malta.</p>
+        <p class="footer-copyright">&copy; 2026 PMLAB. All rights reserved. pmlab.eu.</p>
         <nav class="footer-bottom-links" aria-label="Legal">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>

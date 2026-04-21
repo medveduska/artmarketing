@@ -1,6 +1,6 @@
 /* =========================================
    responsive.css — Mobile-first breakpoints
-   artmarketing portfolio website
+  PMLAB portfolio website
    ========================================= */
 
 /* ============================================
@@ -34,6 +34,20 @@
    TABLET PORTRAIT — max-width: 768px
 ============================================ */
 @media (max-width: 768px) {
+  .nav-logo {
+    transform: none;
+  }
+
+  .brand-logo {
+    width: 74px;
+    height: 74px;
+  }
+
+  .brand-sub {
+    font-size: 0.5rem;
+    max-width: 110px;
+  }
+
   /* --- Nav --- */
   .hamburger {
     display: flex;
@@ -45,7 +59,7 @@
     right: 0;
     bottom: 0;
     width: min(320px, 85vw);
-    background: rgba(10, 18, 32, 0.98);
+    background: rgba(11, 11, 15, 0.96);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-left: 1px solid var(--border-card);

@@ -3,12 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Behind the lens with artmarketing — insights, tips and stories from photography, video production and web design for Malta's hospitality and nightlife industry." />
-  <title>Blog — artmarketing</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <meta name="description" content="Behind the lens with PMLAB — insights, tips and stories from Arthur's Pimenovs Marketing and Media agency." />
+  <title>Blog — PMLAB</title>
 
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/variables.css" />
@@ -44,8 +40,10 @@
       grid-column: 1 / -1;
       display: grid;
       grid-template-columns: 1.4fr 1fr;
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
+      background: var(--glass-white);
+      border: 1px solid var(--glass-border);
+      backdrop-filter: blur(var(--glass-blur));
+      -webkit-backdrop-filter: blur(var(--glass-blur));
       border-radius: var(--radius-lg);
       overflow: hidden;
       transition: transform var(--t-mid), box-shadow var(--t-mid);
@@ -63,19 +61,23 @@
     }
 
     .blog-card-featured .blog-body {
-      padding: 2.5rem 2rem;
+      padding: 2.35rem 2rem;
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
 
     .blog-card-featured .blog-title {
-      font-size: 1.8rem;
+      font-size: 1.74rem;
+      line-height: 1.16;
+      margin-bottom: 0.8rem;
     }
 
     .blog-card-featured .blog-excerpt {
       -webkit-line-clamp: 4;
-      font-size: 0.93rem;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
     }
 
     /* Category filter */
@@ -105,10 +107,15 @@
     }
 
     .cat-btn.active {
-      background: var(--accent-green);
-      color: #070d1a;
+      background: linear-gradient(90deg, var(--accent-green), var(--accent-cyan));
+      color: var(--text-primary);
       border-color: var(--accent-green);
-      box-shadow: 0 4px 16px rgba(0, 255, 136, 0.3);
+      box-shadow: 0 8px 24px rgba(77, 166, 255, 0.3);
+    }
+
+    .cat-btn:focus-visible {
+      outline: 2px solid var(--accent-green);
+      outline-offset: 2px;
     }
 
     @media (max-width: 768px) {
@@ -128,7 +135,8 @@
       }
 
       .blog-card-featured .blog-title {
-        font-size: 1.4rem;
+        font-size: 1.35rem;
+        line-height: 1.2;
       }
     }
   </style>
@@ -137,8 +145,9 @@
 
   <!-- Navigation -->
   <header id="navbar" role="banner">
-    <a href="index.html" class="nav-logo" aria-label="artmarketing — home">
-      art<span>marketing</span>
+    <a href="index.html" class="nav-logo" aria-label="PMLAB — home">
+      <img src="images/logo.png" class="brand-logo" alt="PMLAB logo" width="64" height="64" />
+      <span class="brand-sub">Media and Marketing Agency</span>
     </a>
     <nav id="nav-menu" class="nav-menu" aria-label="Main navigation">
       <a href="index.html#about">About</a>
@@ -162,7 +171,7 @@
       </h1>
       <p class="section-subtitle reveal delay-2">
         Photography tips, video production stories and web design insights
-        — all from the perspective of Malta's creative industry.
+        — from Arthur's Pimenovs Marketing and Media agency.
       </p>
       <div class="accent-line reveal delay-3" aria-hidden="true"></div>
     </div>
@@ -400,8 +409,11 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="nav-logo" aria-label="artmarketing home">art<span>marketing</span></a>
-          <p>Strategic photography, video production and web design for Malta's hospitality, nightlife and events industry.</p>
+          <a href="index.html" class="nav-logo" aria-label="PMLAB home">
+            <img src="images/logo.png" class="brand-logo" alt="PMLAB logo" width="72" height="72" />
+            <span class="brand-sub">Media and Marketing Agency</span>
+          </a>
+          <p>Arthur's Pimenovs Marketing and Media agency providing strategic photography, video production and web design for hospitality, nightlife and events.</p>
           <div class="footer-socials">
             <a href="#" class="social-link" aria-label="Instagram">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
@@ -439,7 +451,7 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p class="footer-copyright">&copy; 2026 artmarketing. All rights reserved. Malta.</p>
+        <p class="footer-copyright">&copy; 2026 PMLAB. All rights reserved. pmlab.eu.</p>
         <nav class="footer-bottom-links" aria-label="Legal">
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
