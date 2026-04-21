@@ -1,46 +1,54 @@
 /* =========================================
-   Design Tokens — artmarketing
-   ========================================= */
+  Design Tokens — PMLAB
+  ========================================= */
 
 :root {
   /* ---- Backgrounds ---- */
-  --bg-primary:    #070d1a;
-  --bg-secondary:  #0c1525;
-  --bg-card:       #0f1d30;
-  --bg-card-hover: #152338;
+  --bg-primary:    #0b0b0f;
+  --bg-secondary:  #111827;
+  --bg-card:       #12131c;
+  --bg-card-hover: #1a1b27;
 
   /* ---- Accent Colours ---- */
-  --accent-green:        #00ff88;
-  --accent-green-dim:    rgba(0, 255, 136, 0.12);
-  --accent-green-border: rgba(0, 255, 136, 0.35);
-  --accent-green-glow:   0 0 22px rgba(0, 255, 136, 0.45), 0 0 60px rgba(0, 255, 136, 0.14);
+  --accent-green:        #4da6ff;
+  --accent-green-dim:    rgba(77, 166, 255, 0.14);
+  --accent-green-border: rgba(77, 166, 255, 0.42);
+  --accent-green-glow:   0 0 22px rgba(77, 166, 255, 0.45), 0 0 60px rgba(77, 166, 255, 0.16);
 
-  --accent-cyan:        #00d4ff;
-  --accent-cyan-dim:    rgba(0, 212, 255, 0.12);
-  --accent-cyan-border: rgba(0, 212, 255, 0.35);
-  --accent-cyan-glow:   0 0 22px rgba(0, 212, 255, 0.45), 0 0 60px rgba(0, 212, 255, 0.14);
+  --accent-cyan:        #7b61ff;
+  --accent-cyan-dim:    rgba(123, 97, 255, 0.12);
+  --accent-cyan-border: rgba(123, 97, 255, 0.35);
+  --accent-cyan-glow:   0 0 22px rgba(123, 97, 255, 0.45), 0 0 60px rgba(123, 97, 255, 0.14);
+  --accent-pink:        #ff4fd8;
+  --accent-gold:        #d4af37;
 
   /* Gradient used for decorative lines/highlights */
-  --gradient-accent: linear-gradient(90deg, var(--accent-green), var(--accent-cyan));
-  --gradient-hero:   linear-gradient(135deg, rgba(7,13,26,0.90) 0%, rgba(7,13,26,0.55) 55%, rgba(7,13,26,0.82) 100%);
-  --gradient-card:   linear-gradient(180deg, transparent 50%, rgba(7,13,26,0.92) 100%);
+  --gradient-accent: linear-gradient(90deg, var(--accent-green), var(--accent-cyan), var(--accent-pink));
+  --gradient-hero:   linear-gradient(135deg, #0b0b0f 0%, #111827 40%, #1e1b4b 100%);
+  --gradient-card:   linear-gradient(180deg, transparent 50%, rgba(11, 11, 15, 0.92) 100%);
+  --gradient-glass:  linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.04));
 
   /* ---- Text ---- */
-  --text-primary:   #f0f0f0;
-  --text-secondary: #b0bfcc;
-  --text-muted:     #6e7e90;
+  --text-primary:   #f5f5f7;
+  --text-secondary: #c9ccd1;
+  --text-muted:     #8d92a3;
+
+  /* ---- Glass ---- */
+  --glass-white:  rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-blur:   20px;
 
   /* ---- Borders ---- */
   --border-subtle: rgba(255, 255, 255, 0.05);
   --border-card:   rgba(255, 255, 255, 0.08);
 
   /* ---- Shadows ---- */
-  --shadow-card:       0 8px 32px rgba(0, 0, 0, 0.45);
-  --shadow-card-hover: 0 20px 56px rgba(0, 0, 0, 0.65);
+  --shadow-card:       0 8px 32px rgba(0, 0, 0, 0.25);
+  --shadow-card-hover: 0 20px 80px rgba(0, 0, 0, 0.35);
 
   /* ---- Typography ---- */
-  --font-display: 'Bebas Neue', sans-serif;
-  --font-body:    'Inter', sans-serif;
+  --font-display: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  --font-body:    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
 
   --fs-hero:       clamp(3.8rem, 9vw, 8rem);
   --fs-xl:         clamp(2.6rem, 5vw, 4.8rem);
@@ -51,10 +59,10 @@
   --fs-label:      0.72rem;
 
   /* ---- Layout ---- */
-  --nav-height:       70px;
-  --section-pad:      clamp(80px, 10vh, 140px);
+  --nav-height:       84px;
+  --section-pad:      clamp(92px, 11vh, 120px);
   --container-max:    1280px;
-  --container-pad:    clamp(1.25rem, 5vw, 3rem);
+  --container-pad:    clamp(1.25rem, 8vw, 8rem);
   --gap-cards:        1.5rem;
   --radius-sm:        4px;
   --radius-md:        8px;
@@ -66,6 +74,11 @@
   --t-fast:  0.18s ease;
   --t-mid:   0.38s ease;
   --t-slow:  0.70s var(--ease-out-expo);
+
+  /* ---- Intro logo morph ---- */
+  --logo-intro-scale-start: 5.0;
+  --logo-intro-range: 560;   /* px of scroll over which the intro plays */
+  --logo-intro-fade-start: 0.88; /* progress fraction at which logo begins to fade */
 
   /* ---- Z-indices ---- */
   --z-below:   -1;
