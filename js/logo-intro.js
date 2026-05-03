@@ -7,6 +7,8 @@
 
   var intro   = document.getElementById('logo-intro');
   var lockup  = intro && intro.querySelector('.logo-intro-lockup');
+  var fullLogo = intro && intro.querySelector('.intro-logo-full');
+  var smallLogo = intro && intro.querySelector('.intro-logo-small');
   var navLogo = document.querySelector('#navbar .nav-logo');
 
   function abort() {
@@ -15,7 +17,7 @@
     document.documentElement.style.setProperty('--hero-intro-progress', '1');
   }
 
-  if (!intro || !lockup || !navLogo) { abort(); return; }
+  if (!intro || !lockup || !fullLogo || !smallLogo || !navLogo) { abort(); return; }
 
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { abort(); return; }
 
@@ -35,6 +37,7 @@
     var scrollY    = window.scrollY || window.pageYOffset || 0;
     var range      = parseCssVar('--logo-intro-range',        560);
     var startScale = parseCssVar('--logo-intro-scale-start',   5.0);
+    var swapStart  = parseCssVar('--logo-intro-swap-start',    0.82);
     var fadeStart  = parseCssVar('--logo-intro-fade-start',    0.88);
     var progress   = clamp(scrollY / range, 0, 1);
 
@@ -52,8 +55,9 @@
     var cy    = lerp(startY, endY, progress);
     var scale = lerp(startScale, 1, progress);
 
-    var fadeT   = clamp((progress - fadeStart) / (1 - fadeStart), 0, 1);
-    var opacity = 1 - fadeT;
+    var swapT    = clamp((progress - swapStart) / (1 - swapStart), 0, 1);
+    var fadeT    = clamp((progress - fadeStart) / (1 - fadeStart), 0, 1);
+    var overlayOpacity = 1 - fadeT;
 
     /*
      * Position the lockup so its visual centre is exactly at (cx, cy).
@@ -65,7 +69,11 @@
     lockup.style.left      = cx.toFixed(1) + 'px';
     lockup.style.top       = cy.toFixed(1) + 'px';
     lockup.style.transform = 'translate(-50%, -50%) scale(' + scale.toFixed(4) + ')';
-    lockup.style.opacity   = opacity.toFixed(3);
+    lockup.style.opacity   = overlayOpacity.toFixed(3);
+
+    /* Crossfade the logo artwork while keeping one morph trajectory. */
+    fullLogo.style.opacity = (1 - swapT).toFixed(3);
+    smallLogo.style.opacity = swapT.toFixed(3);
 
     document.documentElement.style.setProperty('--hero-intro-progress', progress.toFixed(3));
 
