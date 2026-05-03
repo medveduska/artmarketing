@@ -6,11 +6,15 @@
   <meta name="description" content="Behind the lens with PMLAB — insights, tips and stories from Arthur's Pimenovs Marketing and Media agency." />
   <title>Blog — PMLAB</title>
 
+  <link rel="icon" type="image/jpeg" href="images/ico.jpg" />
+  <link rel="shortcut icon" type="image/jpeg" href="images/ico.jpg" />
+
   <link rel="stylesheet" href="css/reset.css" />
   <link rel="stylesheet" href="css/variables.css" />
   <link rel="stylesheet" href="css/animations.css" />
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/responsive.css" />
+  <script>window.__preloaderStart = performance.now();</script>
 
   <style>
     /* ---- Blog listing page specific styles ---- */
@@ -141,12 +145,19 @@
     }
   </style>
 </head>
-<body>
+<body class="preload-active">
+
+  <div id="site-preloader" role="status" aria-live="polite" aria-label="Loading website">
+    <div class="preloader-core">
+      <span class="preloader-spinner" aria-hidden="true"></span>
+      <span class="preloader-label">Loading</span>
+    </div>
+  </div>
 
   <!-- Navigation -->
   <header id="navbar" role="banner">
     <a href="index.html" class="nav-logo" aria-label="PMLAB — home">
-      <img src="images/logo.png" class="brand-logo" alt="PMLAB logo" width="64" height="64" />
+      <img src="images/logo_small.png" class="brand-logo" alt="PMLAB logo" width="64" height="64" />
       <span class="brand-sub">Media and Marketing Agency</span>
     </a>
     <nav id="nav-menu" class="nav-menu" aria-label="Main navigation">
@@ -292,10 +303,10 @@
         <!-- Post 4 -->
         <article class="blog-card reveal delay-2">
           <div class="blog-thumb-wrapper">
-            <a href="blog-post.html" aria-label="Read: Web Design Trends Winning Over Maltese Hospitality Brands">
+            <a href="blog-post.html" aria-label="Read: Web Design Trends for Malta's Small Businesses">
               <img
                 src="https://picsum.photos/seed/blog-webdesign/800/450"
-                alt="Laptop showing a dark, modern hospitality website"
+                alt="Laptop showing a modern small business website"
                 width="800"
                 height="450"
                 loading="lazy"
@@ -310,7 +321,7 @@
               <span>5 min read</span>
             </div>
             <h3 class="blog-title">
-              <a href="blog-post.html">Web Design Trends Winning Maltese Hospitality Brands</a>
+              <a href="blog-post.html">Web Design Trends for Malta's Small Businesses</a>
             </h3>
             <p class="blog-excerpt">
               From dark-mode aesthetics to scroll storytelling — the design choices that
@@ -376,7 +387,7 @@
             </h3>
             <p class="blog-excerpt">
               Your social media and website should feel like the same brand. Here's how we
-              align visual identity across every touchpoint for our hospitality clients.
+              align visual identity across every touchpoint for customer-focused small businesses.
             </p>
             <a href="blog-post.html" class="blog-read-more">Read Article <span aria-hidden="true">→</span></a>
           </div>
@@ -392,10 +403,10 @@
     <div class="container" style="text-align:center;">
       <span class="section-eyebrow reveal">Ready to start?</span>
       <h2 class="section-title reveal delay-1" style="margin: 0.5rem 0 1rem;">
-        Let's make your brand <span class="highlight">unforgettable</span>
+        Ready to plan your next <span class="highlight">project</span>
       </h2>
       <p class="section-subtitle reveal delay-2" style="margin: 0 auto 2rem;">
-        Photography, video and web — all under one roof. Malta-based, EU-ready.
+        Based in Malta, available worldwide for photography, video and web production.
       </p>
       <a href="index.html#contact" class="btn btn-primary reveal delay-3">
         Start a Project <span class="btn-icon" aria-hidden="true">→</span>
@@ -410,16 +421,16 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="nav-logo" aria-label="PMLAB home">
-            <img src="images/logo.png" class="brand-logo" alt="PMLAB logo" width="72" height="72" />
+            <img src="images/logo_small.png" class="brand-logo" alt="PMLAB logo" width="72" height="72" />
             <span class="brand-sub">Media and Marketing Agency</span>
           </a>
-          <p>Arthur's Pimenovs Marketing and Media agency providing strategic photography, video production and web design for hospitality, nightlife and events.</p>
+          <p>Arthur's Pimenovs Marketing and Media agency providing strategic photography, video production and web design for customer-focused small businesses.</p>
           <div class="footer-socials">
             <a href="#" class="social-link" aria-label="Instagram">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             </a>
-            <a href="#" class="social-link" aria-label="Facebook">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            <a href="#" class="social-link" aria-label="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
             </a>
           </div>
         </div>
@@ -443,10 +454,10 @@
         <div>
           <div class="footer-col-title">Industries</div>
           <ul class="footer-links">
-            <li><a href="index.html#contact">Restaurants &amp; Bars</a></li>
-            <li><a href="index.html#contact">Nightclubs</a></li>
-            <li><a href="index.html#contact">Event Organisers</a></li>
-            <li><a href="index.html#contact">Hotels &amp; Hospitality</a></li>
+            <li><a href="index.html#contact">Restaurants &amp; Cafes</a></li>
+            <li><a href="index.html#contact">Workshops &amp; Studios</a></li>
+            <li><a href="index.html#contact">Beauty &amp; Wellness</a></li>
+            <li><a href="index.html#contact">Professional Services</a></li>
           </ul>
         </div>
       </div>
@@ -460,6 +471,7 @@
     </div>
   </footer>
 
+  <script src="js/preloader.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/scroll-animations.js"></script>
 </body>

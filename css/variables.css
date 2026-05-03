@@ -78,7 +78,8 @@
   /* ---- Intro logo morph ---- */
   --logo-intro-scale-start: 5.0;
   --logo-intro-range: 560;   /* px of scroll over which the intro plays */
-  --logo-intro-fade-start: 0.88; /* progress fraction at which logo begins to fade */
+  --logo-intro-swap-start: 0.82; /* progress fraction at which full->small crossfade starts */
+  --logo-intro-fade-start: 0.93; /* progress fraction at which the overlay begins to fade */
 
   /* ---- Z-indices ---- */
   --z-below:   -1;

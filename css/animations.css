@@ -64,8 +64,25 @@
   50%       { transform: translateY(-10px); }
 }
 
+/* Blue orb: top-right → bottom-left → top-right */
+@keyframes orbDrift {
+  0%, 100% { transform: translate(0, 0)        scale(1);    opacity: 1;    }
+  50%       { transform: translate(-56vw, 48vh) scale(0.85); opacity: 0.85; }
+}
+
+/* Pink orb: bottom-left → top-right → bottom-left */
+@keyframes orbDriftReverse {
+  0%, 100% { transform: translate(0, 0)        scale(1);    opacity: 1;    }
+  50%       { transform: translate(56vw, -48vh) scale(1.1);  opacity: 0.85; }
+}
+
 @keyframes rotateGlow {
   0%   { transform: rotate(0deg);   }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spinnerSpin {
+  0%   { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
 

@@ -13,8 +13,9 @@
 - Shared styling is layered in this order across pages: `css/reset.css` -> `css/variables.css` -> `css/animations.css` -> `css/main.css` -> `css/responsive.css`. Keep design tokens in `variables.css`, animation utilities in `animations.css`, and shared component/layout rules in `main.css`. The blog pages keep their page-specific layout rules in inline `<style>` blocks instead of moving them into the shared stylesheets.
 - If a change alters page structure, shared component responsibilities, or how the JS/CSS modules interact, update this file in the same change so the architecture notes stay accurate for future Copilot sessions.
 - JavaScript is split by concern and attached through DOM conventions instead of a build step:
+  - `js/preloader.js` controls the page entry overlay and expects `#site-preloader` plus `body.preload-active` on each page.
   - `js/nav.js` expects `#navbar`, `#hamburger`, and `#nav-menu`.
-  - `js/logo-intro.js` drives the full-screen intro logo morph and expects `#logo-intro` (with `.logo-intro-lockup`) plus the navbar brand target at `#navbar .nav-logo`.
+  - `js/logo-intro.js` drives the full-screen intro logo morph and expects `#logo-intro` (with `.logo-intro-lockup`, `.intro-logo-full`, and `.intro-logo-small`) plus the navbar brand target at `#navbar .nav-logo`.
   - `js/parallax.js` acts on `[data-parallax]` and is only loaded on `index.html`.
   - `js/scroll-animations.js` reveals elements marked with `.reveal` and auto-prepares children of `.reveal-stagger`.
   - `js/gallery.js` powers the portfolio filters plus the photo lightbox.
@@ -25,7 +26,7 @@
 ## Key conventions
 
 - Preserve the DOM hooks the scripts rely on. The JS files are not defensive abstractions; they assume the current IDs, classes, and nested elements exist.
-- Intro logo motion depends on `#logo-intro` being present in `index.html`, and on CSS custom properties (`--logo-intro-*`) in `css/variables.css`/`css/responsive.css`; keep those hooks intact when tuning nav or hero behavior.
+- Intro logo motion depends on `#logo-intro` being present in `index.html`, including both intro image layers (`.intro-logo-full` and `.intro-logo-small`), and on CSS custom properties (`--logo-intro-*`) in `css/variables.css`/`css/responsive.css`; keep those hooks intact when tuning nav or hero behavior.
 - Gallery filtering depends on matching `data-filter` button values with `.gallery-item[data-category]`. Photo lightbox support also depends on photo cards carrying `data-category="photo"` and `data-caption`.
 - The video modal only works when the page contains `#video-modal` with `.vm-inner`, `.vm-video-wrapper`, `.vm-close`, `.vm-title`, and `.vm-desc`.
 - Contact form validation expects each field inside `.form-group`, uses `.has-error` / `.has-success`, and writes errors into `.field-error`. Keep `#form-success` and `#contact-form` intact if the form markup changes.
