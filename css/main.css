@@ -491,10 +491,12 @@ body.intro-active #navbar .nav-logo {
 =========================================== */
 #hero {
   position: relative;
-  height: 100vh;
-  min-height: 620px;
+  min-height: 100vh;
+  height: auto;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: calc(var(--nav-height) + 4.25rem);
+  padding-bottom: 3.5rem;
   overflow: hidden;
   isolation: isolate;
 }
@@ -652,8 +654,8 @@ body.intro-active .hero-content {
 
 .hero-headline {
   font-family: var(--font-display);
-  font-size: var(--fs-hero);
-  line-height: 0.94;
+  font-size: clamp(2.7rem, 6.9vw, 5.6rem);
+  line-height: 0.98;
   letter-spacing: 0.45px;
   color: var(--text-primary);
   margin-bottom: 1.35rem;

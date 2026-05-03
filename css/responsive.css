@@ -91,8 +91,13 @@
   }
 
   /* --- Hero --- */
+  #hero {
+    padding-top: calc(var(--nav-height) + 3.4rem);
+    padding-bottom: 2.6rem;
+  }
+
   .hero-headline {
-    font-size: clamp(3rem, 13vw, 5rem);
+    font-size: clamp(2.35rem, 10.5vw, 4rem);
   }
 
   .hero-actions {
@@ -219,6 +224,11 @@
   }
 
   /* --- Hero --- */
+  #hero {
+    padding-top: calc(var(--nav-height) + 2.8rem);
+    padding-bottom: 2.2rem;
+  }
+
   .scroll-indicator {
     display: none;
   }
